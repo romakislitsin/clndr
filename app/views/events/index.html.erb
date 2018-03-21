@@ -1,0 +1,26 @@
+
+<div class="columns">
+  <div class="column is-9">
+
+    <%= month_calendar events: @calendar_events do |day, events| %>
+      <strong><small><%= day.to_s(:long) %></small></strong>
+      <% events.each do |event| %>
+        <div>
+          <%= link_to event.name, event %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="column is-3">
+    <section class="section">
+      <div class="title is-centered">
+        Upcoming Events
+      </div>
+
+      <%= render(@events.upcoming_events) %>
+
+    </section>
+  </div>
+</div>
+
